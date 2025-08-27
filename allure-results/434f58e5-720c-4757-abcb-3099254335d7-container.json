@@ -1,0 +1,1 @@
+{"uuid":"434f58e5-720c-4757-abcb-3099254335d7","name":"autotests.Test_task_2","children":["5ae27b41-2a41-4b90-91ba-1c11958af269"],"befores":[{"name":"beforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1753272786319,"stop":1753272786909}],"afters":[],"start":1753272786284,"stop":1753272789621}

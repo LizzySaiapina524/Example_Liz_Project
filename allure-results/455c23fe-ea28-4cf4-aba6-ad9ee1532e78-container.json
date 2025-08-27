@@ -1,0 +1,1 @@
+{"uuid":"455c23fe-ea28-4cf4-aba6-ad9ee1532e78","name":"autotests.RestAssured.TapYou.Test_task_2","children":["d669b457-7c19-4cc3-ad85-4f659376450a"],"befores":[{"name":"beforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1753919865863,"stop":1753919866394}],"afters":[],"start":1753919865831,"stop":1753919869289}
