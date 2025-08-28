@@ -1,6 +1,7 @@
 package technicalclasses.RestAssured;
 
 import java.util.List;
+
 import lombok.Data;
 
 public class TapYouTestTaskResponses {

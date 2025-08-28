@@ -16,7 +16,6 @@ import technicalclasses.RestAssured.ResponseValueMatching;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class PostMethods {
 
@@ -35,7 +34,7 @@ public class PostMethods {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
 
-    // Place an order for a pet
+    //Place an order for a pet
     @Test
     public void AddNewOrder() {
 
@@ -59,7 +58,7 @@ public class PostMethods {
                 response.as(ResponseValueMatching.OrderDataMatching.class);
 
 
-        // Get order by ID and check the changes
+        //Get order by ID and check the changes
         given()
                 .accept(JSON)
                 .when()
@@ -100,7 +99,7 @@ public class PostMethods {
         ResponseValueMatching.PostPetDataMatching post_response_value =
                 response.as(ResponseValueMatching.PostPetDataMatching.class);
 
-        // Get pet by ID and check the changes
+        //Get pet by ID and check the changes
         given()
                 .when()
                 //.head("API Key", "special-key") // Способ авторизации

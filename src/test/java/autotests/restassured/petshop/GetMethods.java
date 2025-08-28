@@ -35,7 +35,7 @@ public class GetMethods {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());                //логируем ошибку
     }
 
-    // Find purchase order by ID
+    //Find purchase order by ID
     @Test
     public void FindPurchaseOrder() {
 

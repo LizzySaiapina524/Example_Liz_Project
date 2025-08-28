@@ -1,6 +1,6 @@
 package autotests.selenide;
 
-import technicalclasses.Selenide.UI_Credentials;
+import technicalclasses.Selenide.UICredentials;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -55,10 +55,10 @@ public class Simple_UI_tests {
 
         //Авторизация
         $(By.id("login"))
-                .setValue(UI_Credentials.TestAccount1.getLogin());
+                .setValue(UICredentials.TestAccount1.getLogin());
 
         $(By.id("pass"))
-                .setValue(UI_Credentials.TestAccount1.getPassword());
+                .setValue(UICredentials.TestAccount1.getPassword());
 
         $(By.className("btn-primary"))
                 .click();
@@ -156,13 +156,13 @@ public class Simple_UI_tests {
                 .shouldBe(visible);
 
         $(By.xpath("//input[@id='name']"))
-                .setValue(UI_Credentials.TestAccount3.getLogin());
+                .setValue(UICredentials.TestAccount3.getLogin());
         $(By.xpath("//input[@name='password1']"))
-                .setValue(UI_Credentials.TestAccount3.getPassword());
+                .setValue(UICredentials.TestAccount3.getPassword());
         $(By.xpath("//input[@name='email']"))
-                .setValue(UI_Credentials.TestAccount3.getEmail());
+                .setValue(UICredentials.TestAccount3.getEmail());
         $(By.xpath("//input[@name='question_answer']"))
-                .setValue(UI_Credentials.TestAccount3.getCodephrase());
+                .setValue(UICredentials.TestAccount3.getCodephrase());
         $(By.xpath("//span[contains(text(),'Отправить')]"))
                 .click();
 
@@ -174,9 +174,9 @@ public class Simple_UI_tests {
         $(By.cssSelector("#vk_auth"))
                 .shouldBe(visible);
         $(By.cssSelector("#login_input1"))
-                .setValue(UI_Credentials.TestAccount2.getLogin());
+                .setValue(UICredentials.TestAccount2.getLogin());
         $(By.cssSelector("#login_input2"))
-                .setValue(UI_Credentials.TestAccount2.getPassword());
+                .setValue(UICredentials.TestAccount2.getPassword());
         $(By.xpath("//input[@id='login_submit']"))
                 .click();
     }

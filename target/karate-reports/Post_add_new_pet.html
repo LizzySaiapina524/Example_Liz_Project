@@ -38,8 +38,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
       <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
     </a>
     <div class="nav-count">
-      <div id="nav-pass" class="bg-success">1</div>
-      <div id="nav-fail" class="bg-danger">0</div>
+      <div id="nav-pass" class="bg-success">0</div>
+      <div id="nav-fail" class="bg-danger">1</div>
     </div>
   </div>
   <div id="nav-env">
@@ -49,12 +49,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2025-08-08 10:30:21 PM</div>
+    <div>2025-08-28 04:12:33 AM</div>
   </div>
 </div>
 
         <div class="nav-container">
-          <div class="nav-item passed">
+          <div class="nav-item failed">
             <a href="#[4:83]"><span>[4:83]</span> <span>OPTIMIZED. Place an order for a pet</span></a>
           </div>
         </div>
@@ -80,8 +80,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
                 <span></span>
               </div>
             </div>
-            <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>466</span>
+            <div class="scenario-time failed">
+              <span>ms:</span>&nbsp;<span>20</span>
             </div>
           </div>
           <div class="step-row">
@@ -104,7 +104,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>url &#39;https://petstore.swagger.io&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -133,13 +133,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.85">
-      <div class="step-ref passed">85</div>
+      <div class="step-ref failed">85</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell failed">
         <span>*</span>&nbsp;<span>def OrderForPetRequest = Java.type(&#39;data.PetRequestData.OrderForPetRequest&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell failed">18</div>
   </div>
 
    
@@ -148,7 +148,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-     
+  <div class="preformatted" data-parent="0.85">04:12:33.911 classpath:Post_add_new_pet.feature:85
+* def OrderForPetRequest = Java.type(&#39;data.PetRequestData.OrderForPetRequest&#39;)
+js failed:
+&gt;&gt;&gt;&gt;
+01: Java.type(&#39;data.PetRequestData.OrderForPetRequest&#39;)
+&lt;&lt;&lt;&lt;
+org.graalvm.polyglot.PolyglotException: TypeError: Access to host class data.PetRequestData.OrderForPetRequest is not allowed or does not exist.
+- &lt;js&gt;.:program(Unnamed:1)
+
+classpath:Post_add_new_pet.feature:85
+</div>   
 
   
 
@@ -161,13 +171,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.86">
-      <div class="step-ref passed">86</div>
+      <div class="step-ref skipped">86</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>*</span>&nbsp;<span>def order = OrderForPetRequest.getOrderRequest()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -196,13 +206,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.89">
-      <div class="step-ref passed">89</div>
+      <div class="step-ref skipped">89</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>*</span>&nbsp;<span>def PetResponseData = Java.type(&#39;data.PetResponseData&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -224,13 +234,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.90">
-      <div class="step-ref passed">90</div>
+      <div class="step-ref skipped">90</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>*</span>&nbsp;<span>def expected = PetResponseData.getPetResponseData()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -252,13 +262,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.92">
-      <div class="step-ref passed">92</div>
+      <div class="step-ref skipped">92</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>Given</span>&nbsp;<span>path &#39;/v2/store/order&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -280,13 +290,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.93">
-      <div class="step-ref passed">93</div>
+      <div class="step-ref skipped">93</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>And</span>&nbsp;<span>header Accept = &#39;application/json&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -308,13 +318,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.94">
-      <div class="step-ref passed">94</div>
+      <div class="step-ref skipped">94</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>And</span>&nbsp;<span>header Content-Type = &#39;application/json&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -343,13 +353,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.96">
-      <div class="step-ref passed">96</div>
+      <div class="step-ref skipped">96</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>And</span>&nbsp;<span>request order</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -371,13 +381,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.97">
-      <div class="step-ref passed">97</div>
+      <div class="step-ref skipped">97</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">460</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -386,30 +396,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.97">22:30:21.060 request:
-1 &gt; POST https://petstore.swagger.io/v2/store/order
-1 &gt; Accept: application/json
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 110
-1 &gt; Host: petstore.swagger.io
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;petId&quot;:&quot;23&quot;,&quot;quantity&quot;:1,&quot;id&quot;:23,&quot;shipDate&quot;:&quot;2025-07-30T23:00:06.189Z&quot;,&quot;complete&quot;:true,&quot;status&quot;:&quot;available&quot;}
-
-22:30:21.518 response time in milliseconds: 457
-1 &lt; 200
-1 &lt; Date: Fri, 08 Aug 2025 18:30:19 GMT
-1 &lt; Content-Type: application/json
-1 &lt; Transfer-Encoding: chunked
-1 &lt; Connection: keep-alive
-1 &lt; Access-Control-Allow-Origin: *
-1 &lt; Access-Control-Allow-Methods: GET, POST, DELETE, PUT
-1 &lt; Access-Control-Allow-Headers: Content-Type, api_key, Authorization
-1 &lt; Server: Jetty(9.2.9.v20150224)
-{&quot;id&quot;:23,&quot;petId&quot;:23,&quot;quantity&quot;:1,&quot;shipDate&quot;:&quot;2025-07-30T23:00:06.189+0000&quot;,&quot;status&quot;:&quot;available&quot;,&quot;complete&quot;:true}
-
-</div>   
+     
 
   
 
@@ -422,13 +409,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.98">
-      <div class="step-ref passed">98</div>
+      <div class="step-ref skipped">98</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>Then</span>&nbsp;<span>status 200</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
@@ -457,13 +444,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="0.101">
-      <div class="step-ref passed">101</div>
+      <div class="step-ref skipped">101</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>And</span>&nbsp;<span>match response == expected</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    

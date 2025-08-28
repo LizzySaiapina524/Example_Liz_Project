@@ -37,25 +37,25 @@ public class APITestData {
 
     public final static
     String UpdatePet = """
-           {
-             "id": 33,
-             "category": {
-               "id": 333,
-               "name": "Lizzy"
-             },
-             "name": "cats",
-             "photoUrls": [
-               "string"
-             ],
-             "tags": [
-               {
-                 "id": 999998877,
-                 "name": "cats"
-               }
-             ],
-             "status": "pending"
-           }
-           """;
+            {
+              "id": 33,
+              "category": {
+                "id": 333,
+                "name": "Lizzy"
+              },
+              "name": "cats",
+              "photoUrls": [
+                "string"
+              ],
+              "tags": [
+                {
+                  "id": 999998877,
+                  "name": "cats"
+                }
+              ],
+              "status": "pending"
+            }
+            """;
 
     public final static
     String UpdateUser = """

@@ -3,18 +3,28 @@ import com.intuit.karate.junit5.Karate;
 public class KarateTestRunner {
 
     @Karate.Test
-    Karate Get_user_list() {
-        return Karate.run("Get_user_list").relativeTo(getClass());
+    Karate GetUserList() {
+        return Karate.run("GetUserList").relativeTo(getClass());
     }
 
     @Karate.Test
-    Karate Get_user_by_id() {
-        return Karate.run("Get_user_by_id").relativeTo(getClass());
+    Karate GetUserById() {
+        return Karate.run("GetUserById").relativeTo(getClass());
     }
 
     @Karate.Test
-    Karate Post_add_new_pet() {
-        return Karate.run("Post_add_new_pet").relativeTo(getClass());
+    Karate PostAddNewPet() {
+        return Karate.run("PostAddNewPet").relativeTo(getClass());
+    }
+
+    @Karate.Test
+    Karate PutUpdateExistingPet() {
+        return Karate.run("PutUpdateExistingPet").relativeTo(getClass());
+    }
+
+    @Karate.Test
+    Karate PutUpdateExistingUser() {
+        return Karate.run("PutUpdateExistingUser").relativeTo(getClass());
     }
 
     @Karate.Test

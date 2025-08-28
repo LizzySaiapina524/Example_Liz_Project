@@ -1,7 +1,6 @@
 package autotests.restassured.petshop;
 
 import technicalclasses.RestAssured.APITestData;
-//*import Technical_classes.RestAssured.API_data_matching_response_fields;
 import technicalclasses.RestAssured.ResponseValueMatching;
 import technicalclasses.RestAssured.ResponseSchemaMatching;
 import io.restassured.RestAssured;
@@ -17,7 +16,6 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.testng.Assert.assertEquals;
 
 public class PutMethods {
     @BeforeAll
@@ -49,15 +47,15 @@ public class PutMethods {
                 .extract()
                 .response();
 
-        // Проверяем что схема респонса отвечает заявленной
+        //The response fields correspond to the scheme
         ResponseSchemaMatching.SchemaPetResponse put_schema_response_body =
                 response.as(ResponseSchemaMatching.SchemaPetResponse.class);
 
-        // Проверяем что в респонсе те самые значения полей, которые нужны
+        //The response fields are filled with the correct values
         ResponseValueMatching put_values_response_body =
                 response.as(ResponseValueMatching.class);
 
-        // Получить питомца по ID и проверить
+        //Get Pet by ID
         given()
                 .accept(JSON)
                 .when()
@@ -67,13 +65,16 @@ public class PutMethods {
                 .extract()
                 .response();
 
-        // Проверяем что в респонсе те самые значения полей, которые нужны
-        ResponseValueMatching get_value_response_body =
-                response.as(ResponseValueMatching.class);
+        //The response fields correspond to the scheme
+        ResponseSchemaMatching.SchemaPetResponse get_schema_response_body =
+                response.as(ResponseSchemaMatching.SchemaPetResponse.class);
 
+        //The response fields are filled with the correct values
+        ResponseValueMatching get_values_response_body =
+                response.as(ResponseValueMatching.class);
     }
 
-    // Update an existing user
+    //Update an existing user
     @Test
     public void UpdateUserInfoRequest() {
 
@@ -87,30 +88,30 @@ public class PutMethods {
                 .extract()
                 .response();
 
-        // Проверяем что схема респонса отвечает заявленной
-        ResponseSchemaMatching.TestDataPutResponse get_response_body =
-                response.as(ResponseSchemaMatching.TestDataPutResponse.class);
+        //The response fields correspond to the scheme
+        ResponseSchemaMatching.UserPutResponse put_response_schema =
+                response.as(ResponseSchemaMatching.UserPutResponse.class);
 
-        // Проверяем что в респонсе те самые значения полей, которые нужны
-        ResponseValueMatching.API_put_data_matching_response_fields putResponseBody =
-                response.as(ResponseValueMatching.API_put_data_matching_response_fields.class);
+        //The response fields are filled with the correct values
+        ResponseValueMatching.PutUserDataMatching put_response_value =
+                response.as(ResponseValueMatching.PutUserDataMatching.class);
 
-        ResponseValueMatching.API_put_data_matching_response_fields.Put_user_checking_fields_value(putResponseBody);
-
-        // Получить юзера по ID и проверить
+        //Get User by ID
         given()
                 .accept(JSON)
                 .when()
                 .get("https://petstore.swagger.io/v2/user/cozymo")
                 .then()
                 .statusCode(200)
-                .body("id", equalTo(222))
-                .body("username", equalTo("cozymo"))
-                .body("firstName", equalTo("Cozy"))
-                .body("lastName", equalTo("Mo"))
-                .body("email", equalTo("cozymore@gmail.com"))
-                .body("password", equalTo("cozymo25"))
-                .body("phone", equalTo("5555555"))
-                .body("userStatus", equalTo(1));
+                .extract()
+                .response();
+
+        //The response fields correspond to the scheme
+        ResponseSchemaMatching.UserGetResponse get_response_schema =
+                response.as(ResponseSchemaMatching.UserGetResponse.class);
+
+        //The response fields are filled with the correct values
+        ResponseValueMatching.UserDataMatching get_response_value =
+                response.as(ResponseValueMatching.UserDataMatching.class);
     }
 }

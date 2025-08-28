@@ -1,12 +1,11 @@
 package technicalclasses.RestAssured;
 
 
-// Для проверки не схемы, а именно содержимого полей респонса на выходе
+//To check not the scheme, but the contents of the response fields at the output.
 
 import lombok.Data;
 
 import java.util.List;
-
 
 import static org.testng.Assert.assertEquals;
 
@@ -49,15 +48,15 @@ public class ResponseValueMatching {
     }
 
 
-    // Вложенный публичный статический класс для проверки полей другого типа ответа
+    //Nested public static class for checking fields of a different response type
     @Data
-    public static class API_put_data_matching_response_fields {
+    public static class PutUserDataMatching {
 
         private long code;
         private String type;
         private String message;
 
-        public static void Put_user_checking_fields_value(API_put_data_matching_response_fields actualResponse) {
+        public static void Put_user_checking_fields_value(PutUserDataMatching actualResponse) {
             assertEquals(200, actualResponse.getCode());
             assertEquals("unknown", actualResponse.getType());
             assertEquals("222", actualResponse.getMessage());
@@ -85,7 +84,7 @@ public class ResponseValueMatching {
     }
 
     @Data
-    public static class  GetPetDataMatching {
+    public static class GetPetDataMatching {
 
         private long id;
         private ResponseValueMatching.Category category;
@@ -124,7 +123,7 @@ public class ResponseValueMatching {
     }
 
     @Data
-    public static class  PostPetDataMatching {
+    public static class PostPetDataMatching {
 
         private long id;
         private ResponseValueMatching.Category category;
@@ -161,7 +160,7 @@ public class ResponseValueMatching {
             assertEquals("https://example.com/dog.jpg", actualResponse.getPhotoUrls().get(0));
         }
     }
-    
+
     @Data
     public static class OrderDataMatching {
 
@@ -182,5 +181,28 @@ public class ResponseValueMatching {
         }
     }
 
+    @Data
+    public static class UserDataMatching {
+
+        private int id;
+        private String username;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String password;
+        private String phone;
+        private int userStatus;
+
+        public static void UserDataMatching(UserDataMatching actualResponse) {
+            assertEquals(222, actualResponse.getId());
+            assertEquals("cozymo", actualResponse.getUsername());
+            assertEquals("Cozy", actualResponse.getFirstName());
+            assertEquals("Mo", actualResponse.getLastName());
+            assertEquals("cozymore@gmail.com", actualResponse.getEmail());
+            assertEquals("cozymo25", actualResponse.getPassword());
+            assertEquals("5555555", actualResponse.getPhone());
+            assertEquals(1, actualResponse.getUserStatus());
+        }
     }
+}
 

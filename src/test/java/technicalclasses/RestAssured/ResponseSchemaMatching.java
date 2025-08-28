@@ -6,12 +6,12 @@ import java.util.List;
 
 public class ResponseSchemaMatching {
 
-    // Схема полей для проверки
+    //Response Schema
     public static class Category {
         private int id;
         private String name;
 
-        // Геттеры и сеттеры
+        //getters ans setters
         public int getId() {
             return id;
         }
@@ -33,7 +33,7 @@ public class ResponseSchemaMatching {
         private int id;
         private String name;
 
-        // Геттеры и сеттеры
+        //getters ans setters
         public int getId() {
             return id;
         }
@@ -56,13 +56,13 @@ public class ResponseSchemaMatching {
     public static class SchemaPetResponse {
 
         private int id;
-        private Category category; // Изменено с ArrayList<String> на объект Category
+        private Category category; //Category object
         private String name;
         private List<String> photoUrls;
         private List<Tag> tags;
         private String status;
 
-        // Геттеры и сеттеры
+        //getters ans setters
         public int getId() {
             return id;
         }
@@ -122,7 +122,7 @@ public class ResponseSchemaMatching {
         private String status;
         private boolean complete;
 
-        // Геттеры и сеттеры
+        //getters ans setters
         public int getId() {
             return id;
         }
@@ -147,40 +147,138 @@ public class ResponseSchemaMatching {
             this.quantity = quantity;
         }
 
-        public String getShipDate() {return shipDate;}
+        public String getShipDate() {
+            return shipDate;
+        }
 
-        public void setShipDate() {this.shipDate = shipDate;}
+        public void setShipDate() {
+            this.shipDate = shipDate;
+        }
 
-        public boolean getComplete() {return complete;}
+        public boolean getComplete() {
+            return complete;
+        }
 
-        public String setComplete() {this.complete = complete;return null;}
+        public String setComplete() {
+            this.complete = complete;
+            return null;
+        }
 
-        public String getStatus() {return status;}
+        public String getStatus() {
+            return status;
+        }
 
-        public void setStatus(String status) {this.status = status;}
+        public void setStatus(String status) {
+            this.status = status;
+        }
     }
 
-    public static class TestDataPutResponse {
+    public static class UserPutResponse {
 
         private int code;
-        private String type ;
+        private String type;
         private String message;
 
-        // Геттеры и сеттеры
+        //getters ans setters
         public int getCode() {
             return code;
         }
 
         public void setCode(int id) {
-            this.code = 200;
+            this.code = code;
         }
 
-        public String getType() {return type ;}
+        public String getType() {
+            return type;
+        }
 
-        public void setType() {this.type = "unknown";}
+        public void setType() {
+            this.type = type;
+        }
 
-        public String getMessage() {return message ;}
+        public String getMessage() {
+            return message;
+        }
 
-        public void setMessage() {this.message = "222";}
+        public void setMessage() {
+            this.message = message;
         }
     }
+
+    public static class UserGetResponse {
+
+        private int id;
+        private String username;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String password;
+        private String phone;
+        private int userStatus;
+
+        //getters ans setters
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername() {
+            this.username = username;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName() {
+            this.firstName = firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName() {
+            this.lastName = lastName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail() {
+            this.email = email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword() {
+            this.password = password;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone() {
+            this.phone = phone;
+        }
+
+        public int getUserStatus() {
+            return userStatus;
+        }
+
+        public void setUserStatus() {
+            this.userStatus = userStatus;
+        }
+    }
+}
