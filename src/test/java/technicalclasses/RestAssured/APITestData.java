@@ -36,6 +36,18 @@ public class APITestData {
                 """;
 
     public final static
+    String AddNewOrderForDelete = """
+              {
+              "id":3 ,
+              "petId": 23,
+              "quantity": 1,
+              "shipDate": "2025-07-30T23:00:06.189Z",
+              "status": "available",
+              "complete": true
+            }
+                """;
+
+    public final static
     String UpdatePet = """
             {
               "id": 33,

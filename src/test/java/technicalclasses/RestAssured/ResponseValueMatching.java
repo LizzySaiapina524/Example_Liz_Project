@@ -64,6 +64,48 @@ public class ResponseValueMatching {
     }
 
     @Data
+    public static class DeleteDataMatching {
+
+        private long code;
+        private String type;
+        private String message;
+
+        public static void Put_user_checking_fields_value(PutUserDataMatching actualResponse) {
+            assertEquals(200, actualResponse.getCode());
+            assertEquals("unknown", actualResponse.getType());
+            assertEquals("9999", actualResponse.getMessage());
+        }
+    }
+
+    @Data
+    public static class DeletePetDataMatching {
+
+        private long code;
+        private String type;
+        private String message;
+
+        public static void Put_user_checking_fields_value(PutUserDataMatching actualResponse) {
+            assertEquals(200, actualResponse.getCode());
+            assertEquals("unknown", actualResponse.getType());
+            assertEquals("9999", actualResponse.getMessage());
+        }
+    }
+
+    @Data
+    public static class DeleteOrderDataMatching {
+
+        private long code;
+        private String type;
+        private String message;
+
+        public static void Put_user_checking_fields_value(PutUserDataMatching actualResponse) {
+            assertEquals(200, actualResponse.getCode());
+            assertEquals("unknown", actualResponse.getType());
+            assertEquals("3", actualResponse.getMessage());
+        }
+    }
+
+    @Data
     public static class GetOrderDataMatching {
 
         private int id;
