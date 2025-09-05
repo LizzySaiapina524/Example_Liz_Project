@@ -19,7 +19,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: Not existed value
     Given path 'api/test/user/99999999999'
-    When method get
+    When method GET
     Then status 400
     And match response.isSuccess == false
     And match response.errorCode == 400
@@ -28,7 +28,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: String value instead int
     Given path 'api/test/user/abc'
-    When method get
+    When method GET
     Then status 400
     And match response.isSuccess == false
     And match response.errorCode == 400
@@ -37,7 +37,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: NULL ID
     Given path 'api/test/user/NULL'
-    When method get
+    When method GET
     Then status 400
     And match response.isSuccess == false
     And match response.errorCode == 400
@@ -46,7 +46,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: Empty ID
     Given path 'api/test/user/'
-    When method get
+    When method GET
     Then status 404
     And match response.status == 404
     And match response.error == 'Not Found'
@@ -55,7 +55,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: Empty space ID
     Given path 'api/test/user/ 33'
-    When method get
+    When method GET
     Then status 400
     And match response.isSuccess == false
     And match response.errorCode == 400
@@ -64,7 +64,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: Negative ID value
     Given path 'api/test/user/-33'
-    When method get
+    When method GET
     Then status 200
     And match response.isSuccess == true
     And match response.errorCode == 0
@@ -73,7 +73,7 @@ Feature: Get user by Id - check response structure and content
 
   Scenario: Zero ID value
     Given path 'api/test/user/0'
-    When method get
+    When method GET
     Then status 500
     And match response.status == 500
     And match response.error == 'Internal Server Error'

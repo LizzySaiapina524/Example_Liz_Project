@@ -79,7 +79,6 @@ Feature: Get user by Id - check response structure and content
       And match response.status == 'available'
       And match response.complete == true
 
-  @only
   Scenario: OPTIMIZED. Place an order for a pet
     # Определили переменную, чтоб призвать реквест из технического класса, расположенного в data
     * def OrderForPetRequest = Java.type('data.PetRequestData$PetUpdateData$OrderForPetRequest')

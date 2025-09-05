@@ -6,7 +6,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Validate response for gender=male
     Given path 'api/test/users'
     And param gender = 'male'
-    When method get
+    When method GET
     Then status 200
     And match response.isSuccess == true
     And match response.errorCode == 0
@@ -16,7 +16,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Validate response for gender=female
     Given path 'api/test/users'
     And param gender = 'female'
-    When method get
+    When method GET
     Then status 200
     And match response.isSuccess == true
     And match response.errorCode == 0
@@ -26,7 +26,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Incorrect value for gender
     Given path 'api/test/users'
     And param gender = 'abc'
-    When method get
+    When method GET
     Then status 500
     And match response.status == 500
     And match response.error == 'Internal Server Error'
@@ -36,7 +36,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Empty value for gender
     Given path 'api/test/users'
     And param gender = ''
-    When method get
+    When method GET
     Then status 500
     And match response.status == 500
     And match response.error == 'Internal Server Error'
@@ -45,7 +45,7 @@ Feature: Get male/female users - check response structure and content
 
   Scenario: Empty parameter gender
     Given path 'api/test/users'
-    When method get
+    When method GET
     Then status 400
     And match response.status == 400
     And match response.error == 'Bad Request'
@@ -55,7 +55,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Gender value in mixed register
     Given path 'api/test/users'
     And param gender = 'FeMale'
-    When method get
+    When method GET
     Then status 500
     And match response.status == 500
     And match response.error == 'Internal Server Error'
@@ -65,7 +65,7 @@ Feature: Get male/female users - check response structure and content
   Scenario: Gender value with empty space
     Given path 'api/test/users'
     And param gender = ' male'
-    When method get
+    When method GET
     Then status 500
     And match response.status == 500
     And match response.error == 'Internal Server Error'

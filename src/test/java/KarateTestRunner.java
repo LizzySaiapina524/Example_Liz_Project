@@ -28,6 +28,16 @@ public class KarateTestRunner {
     }
 
     @Karate.Test
+    Karate DeletePet() {
+        return Karate.run("DeletePet").relativeTo(getClass());
+    }
+
+    @Karate.Test
+    Karate DeleteOrder() {
+        return Karate.run("DeleteOrder").relativeTo(getClass());
+    }
+
+    @Karate.Test
     Karate testOnly() {
         return Karate.run()
                 .tags("@only")
