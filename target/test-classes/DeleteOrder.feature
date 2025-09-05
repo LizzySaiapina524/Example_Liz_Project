@@ -1,31 +1,28 @@
-Feature: Get user by Id - check response structure and content
+Feature: Delete Order by Id - check response structure and content
 
   Background:
     * url 'https://petstore.swagger.io'
 
   Scenario: Add a new order using POST for checking DELETE method
+    # Определили переменную, чтоб призвать реквест из технического класса, расположенного в data
+    * def OrderRequestData = Java.type('data.OrderRequestData')
+    * def order = OrderRequestData.getOrderRequestData()
+
+    # Определили переменную, чтоб призвать респонс из технического класса, расположенного в data
+    * def OrderResponseData = Java.type('data.OrderResponseData')
+    * def expected = OrderResponseData.getOrderResponseData()
+
     Given path '/v2/store/order'
     And header Accept = 'application/json'
     And header Content-Type = 'application/json'
-    And request
-    """
-              {
-              "id":3 ,
-              "petId": 23,
-              "quantity": 1,
-              "shipDate": "2025-07-30T23:00:06.189Z",
-              "status": "available",
-              "complete": true
-            }
-                """
+
+    #Использовали переменную чтоб заполнить поля тестовыми данными из тех класса с реквестом
+    And request order
     When method POST
     Then status 200
-    And match response.id == 3
-    And match response.petId == 23
-    And match response.quantity == 1
-    And match response.shipDate == '2025-07-30T23:00:06.189+0000'
-    And match response.status == 'available'
-    And match response.complete == true
+
+    # сравнили пришедшие поля на соответствие значениям, заявленным в тех. классе, где респонс
+    And match response == expected
 
   Scenario: Delete new oder
     Given path '/v2/store/order/3'
