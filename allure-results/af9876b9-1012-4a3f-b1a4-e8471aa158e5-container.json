@@ -1,0 +1,1 @@
+{"uuid":"af9876b9-1012-4a3f-b1a4-e8471aa158e5","name":"Default Suite","children":["28cd612a-a6d0-483c-924e-9d89f66b870d"],"befores":[],"afters":[{"name":"sendAllureReportAfterSuite","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1759694529980,"stop":1759694530538}],"start":1759694525893,"stop":1759694530539}

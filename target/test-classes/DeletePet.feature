@@ -2,6 +2,8 @@ Feature: Delete Pet by Id - check response structure and content
 
   Background:
     * url 'https://petstore.swagger.io'
+    * configure connectTimeout = 3000
+    * configure readTimeout = 7000
 
   @only
   Scenario: Add a new pet using POST for checking DELETE method
@@ -13,6 +15,7 @@ Feature: Delete Pet by Id - check response structure and content
     * def OrderResponseData = Java.type('data.OrderResponseData')
     * def expected = OrderResponseData.getOrderResponseData()
 
+    * configure readTimeout = 10000
     Given path '/v2/pet'
     And header Accept = 'application/json'
     And header Content-Type = 'application/json'
@@ -23,6 +26,7 @@ Feature: Delete Pet by Id - check response structure and content
     Then status 200
 
   Scenario: Delete new pet
+    * configure readTimeout = 10000
     Given path '/v2/pet/23'
     When method DELETE
     Then status 200
@@ -32,6 +36,7 @@ Feature: Delete Pet by Id - check response structure and content
 
     #особенность публичного Petstore API. Не полностью удаляет. Тем не менее проверим респонс на соответствие схеме
   Scenario: Validate response for pet by ID
+    * configure readTimeout = 10000
     Given path '/v2/pet/23'
     When method GET
     Then status 200

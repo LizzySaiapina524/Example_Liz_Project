@@ -97,7 +97,7 @@ public class PutMethods {
                 response.as(ResponseValueMatching.PutUserDataMatching.class);
 
         //Get User by ID
-        given()
+        Response getResponse = given()
                 .accept(JSON)
                 .when()
                 .get("https://petstore.swagger.io/v2/user/cozymo")
@@ -107,11 +107,12 @@ public class PutMethods {
                 .response();
 
         //The response fields correspond to the scheme
-        ResponseSchemaMatching.UserGetResponse get_response_schema =
-                response.as(ResponseSchemaMatching.UserGetResponse.class);
+        ResponseSchemaMatching.UserGetResponse get_schema_response_body =
+                getResponse.as(ResponseSchemaMatching.UserGetResponse.class);
 
         //The response fields are filled with the correct values
-        ResponseValueMatching.UserDataMatching get_response_value =
-                response.as(ResponseValueMatching.UserDataMatching.class);
+        ResponseValueMatching.UserDataMatching get_values_response_body =
+                getResponse.as(ResponseValueMatching.UserDataMatching.class);
+
     }
 }

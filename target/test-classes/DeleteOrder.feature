@@ -12,6 +12,7 @@ Feature: Delete Order by Id - check response structure and content
     * def OrderResponseData = Java.type('data.OrderResponseData')
     * def expected = OrderResponseData.getOrderResponseData()
 
+    * configure readTimeout = 10000
     Given path '/v2/store/order'
     And header Accept = 'application/json'
     And header Content-Type = 'application/json'
@@ -25,6 +26,7 @@ Feature: Delete Order by Id - check response structure and content
     And match response == expected
 
   Scenario: Delete new oder
+    * configure readTimeout = 10000
     Given path '/v2/store/order/3'
     When method DELETE
     Then status 200
@@ -33,6 +35,7 @@ Feature: Delete Order by Id - check response structure and content
     And match response.message == '3'
 
   Scenario: Validate response for pet by ID
+    * configure readTimeout = 10000
     Given path '/v2/store/order/3'
     When method GET
     Then status 404

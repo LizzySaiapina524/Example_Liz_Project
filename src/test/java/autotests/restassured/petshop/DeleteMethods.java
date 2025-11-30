@@ -2,6 +2,7 @@ package autotests.restassured.petshop;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.config.HttpClientConfig;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
@@ -38,6 +39,11 @@ public class DeleteMethods {
 
         //Add New Pet for checking Delete method
         Response response = (Response) given()
+                .config(RestAssured.config()
+                        .httpClient(HttpClientConfig.httpClientConfig()
+                                .setParam("http.connection.timeout", 3000)      // 3 сек на подключение
+                                .setParam("http.socket.timeout", 3000)          // 3 сек на ответ
+                                .setParam("http.connection-manager.timeout", 3000))) // 3 сек на соединение из пула
                 .contentType(JSON)
                 .body(APITestData.AddNewPet)
                 .when()
@@ -57,6 +63,11 @@ public class DeleteMethods {
 
         //Delete New Pet
         Response deleteResponse = given()
+                .config(RestAssured.config()
+                        .httpClient(HttpClientConfig.httpClientConfig()
+                                .setParam("http.connection.timeout", 3000)      // 3 сек на подключение
+                                .setParam("http.socket.timeout", 3000)          // 3 сек на ответ
+                                .setParam("http.connection-manager.timeout", 3000))) // 3 сек на соединение из пула
                 .when()
                 .contentType(ContentType.JSON)
                 .delete("https://petstore.swagger.io/v2/pet/9999")
@@ -75,6 +86,11 @@ public class DeleteMethods {
 
         //Check Pet Absence
         Response getResponse = given()
+                .config(RestAssured.config()
+                        .httpClient(HttpClientConfig.httpClientConfig()
+                                .setParam("http.connection.timeout", 3000)      // 3 сек на подключение
+                                .setParam("http.socket.timeout", 3000)          // 3 сек на ответ
+                                .setParam("http.connection-manager.timeout", 3000))) // 3 сек на соединение из пула
                 .when()
                 .contentType(ContentType.JSON)
                 .get("https://petstore.swagger.io/v2/pet/9999")
@@ -137,7 +153,7 @@ public class DeleteMethods {
         Response getResponse = given()
                 .when()
                 .contentType(JSON)
-                .get("https://petstore.swagger.io/v2/store/order/2")
+                .get("https://petstore.swagger.io/v2/store/order/3")
                 .then()
                 .statusCode(404)
                 .extract()

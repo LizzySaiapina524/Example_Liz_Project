@@ -1,5 +1,7 @@
 package autotests.restassured.petshop;
 
+import org.testng.annotations.AfterSuite;
+import technicalclasses.GmailTestSender;
 import technicalclasses.RestAssured.ResponseValueMatching;
 import technicalclasses.RestAssured.ResponseSchemaMatching;
 import io.restassured.RestAssured;
@@ -80,4 +82,12 @@ public class GetMethods {
                 response.as(ResponseValueMatching.GetPetDataMatching.class);
 
     }
+
+    // --- Автоматическая генерация Allure отчета и отправка на почту ---
+    @AfterSuite
+    public void sendAllureReportAfterSuite() {
+        // Вызываем метод, который запускает сервер и отправляет ссылку на отчет
+        GmailTestSender.sendAllureReportLink();
+    }
+
 }

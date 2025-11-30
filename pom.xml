@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
     <artifactId>ExampleLiz</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <allure.version>2.25.0</allure.version>
+    </properties>
 
-        <!--Selenide Dependency-->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>qameta</id>
+            <url>https://dl.bintray.com/qameta/maven</url>
+        </repository>
+
+        <repository>
+            <id>qameta</id>
+            <url>https://maven.pkg.github.com/qameta/allure-maven</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+    </repositories>
+
+    <dependencies>
+        <!-- Selenide -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
@@ -18,62 +45,30 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- PostgreSQL -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-
-            <version>42.2.23</version>
+            <version>42.6.0</version>
             <scope>test</scope>
         </dependency>
 
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.32</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- SLF4J -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
             <version>1.7.12</version>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <!--  <version>RELEASE</version> -->
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
-        </dependency>  <!-- slf4j -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.5</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <!-- REST-Assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -81,54 +76,146 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- JSON Path -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.15.0</version> <!-- Убедитесь, что используете последнюю версию -->
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.7.0</version>
         </dependency>
 
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version> <!-- и актуальная -->
+            <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- Allure TestNG Adapter -->
+        <!-- Jackson Databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.0</version>
+        </dependency>
+
+        <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.25.0</version> <!-- последняя на июль 2025 -->
+            <version>${allure.version}</version>
         </dependency>
-
-        <!-- Основная библиотека Karate -->
-        <dependency>
-            <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-junit5</artifactId>
-            <version>1.4.1</version> <!-- или более новая -->
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Playwright для Java -->
-        <dependency>
-            <groupId>com.microsoft.playwright</groupId>
-            <artifactId>playwright</artifactId>
-            <version>1.41.0</version> <!-- проверь актуальную версию на Maven Central -->
-        </dependency>
-
-        <!-- Для отчётов (опционально, например Allure) -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.23.0</version>
+            <version>${allure.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Karate -->
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-junit5</artifactId>
+            <version>1.4.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ibm.icu</groupId>
+            <artifactId>icu4j</artifactId>
+            <version>73.2</version>
+        </dependency>
+
+        <!-- Playwright -->
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.41.0</version>
+        </dependency>
+
+        <!-- Jakarta Mail API -->
+        <dependency>
+            <groupId>jakarta.mail</groupId>
+            <artifactId>jakarta.mail-api</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <!-- Jakarta Mail Implementation -->
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-mail</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <!-- Jakarta Activation API -->
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+            <version>2.1.3</version>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.30.0</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sikulix</groupId>
+            <artifactId>sikulixapi</artifactId>
+            <version>2.0.5</version>
         </dependency>
 
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
 
+            <!-- Surefire Plugin для тестов -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <useSystemClassLoader>true</useSystemClassLoader>
+                </configuration>
+            </plugin>
+
+            <!-- Allure Maven Plugin -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.15.2</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
